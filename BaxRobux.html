@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Моя страница</title>
+	<style>
+		body {
+			background-image: url("https://www.bax-group.com/wp-content/uploads/BAX_RGB_187.52.46.png");
+			background-size: cover;
+			background-position: center;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			color: white;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 100px;
+		}
+
+		.panel {
+			background-color: rgba(255, 255, 255, 0.5);
+			border: 2px solid red;
+			padding: 20px;
+			margin-bottom: 20px;
+			width: 500px;
+			max-width: 90%;
+			box-sizing: border-box;
+		}
+
+		.panel h2 {
+			margin-top: 0;
+			margin-bottom: 10px;
+			color: red;
+		}
+
+		.panel label {
+			display: block;
+			margin-bottom: 5px;
+		}
+
+		.panel input[type=text] {
+			width: 100%;
+			padding: 5px;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			box-sizing: border-box;
+			font-size: 16px;
+			margin-bottom: 10px;
+		}
+
+		.button {
+			background-color: red;
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 3px;
+			cursor: pointer;
+			font-size: 16px;
+			transition: background-color 0.3s ease;
+		}
+
+		.button:hover {
+			background-color: darkred;
+		}
+
+		.success {
+			background-color: green;
+			color: white;
+			padding: 10px;
+			text-align: center;
+			font-size: 24px;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="panel">
+			<h2>Требования:</h2>
+			<p style="color:red;">1. Подпишитесь на <a href="https://www.youtube.com/@bax3094" style="color:red;">канал</a></p>
+			<p style="color:red;">2. Вашему аккаунту должно быть больше 30 дней</p>
+			<p style="color:red;">3. У вас должна быть привязана почта к аккаунту</p>
+			<label for="input1">Введите ваше имя:</label>
+			<input type="text" id="input1" name="name">
+			<label for="input2">Введите ваш email:</label>
+			<input type="text" id="input2" name="email">
+			<button class="button" onclick="handleClick()">Отправить</button>
+		</div>
+		<div class="success" id="success">Выполнено!</div>
+	</div>
+
+	<script>
+		function handleClick() {
+			var successDiv = document.getElementById("success");
+			successDiv.style.display = "block";
+			var button = document.querySelector(".button");
+			button.style.backgroundColor =
+	// Disable the button to prevent multiple submissions
+	button.disabled = true;
+
+	// Animate the success message and hide it after a delay
+	setTimeout(function() {
+		successDiv.style.top = "20px";
+		setTimeout(function() {
+			successDiv.style.top = "-100px";
+			successDiv.style.display = "none";
+		}, 3000);
+	}, 500);
+}
+</script>
